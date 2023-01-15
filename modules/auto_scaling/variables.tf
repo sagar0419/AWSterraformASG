@@ -1,0 +1,13 @@
+variable "ami_name" {}
+variable "ami_value" {}
+variable "vpc_id" {}
+variable "launch_conf_name" {}
+variable "launch_conf_instance_type" {}
+variable "launch_conf_sg" {}
+variable "launch_conf_key_name" {}
+variable "launch_subnet_id" {}
+variable "cloud_asg_name" {}
+variable "cloud_asg_max_capacity" {}
+variable "cloud_asg_min_capacity" {}
+variable "cloud_asg_desired_capacity" {}
+variable "asg_lb_target" {}
