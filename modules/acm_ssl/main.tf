@@ -20,7 +20,7 @@ resource "aws_acm_certificate" "cert" {
 #   SSL VALIDATION   
 #----------------------------------------------------------------
 
-data "aws_route53_zone" "texecom" {
+data "aws_route53_zone" "domain" {
   name         = var.fqdn_name
 }
 
@@ -38,7 +38,7 @@ resource "aws_route53_record" "dns_record" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = data.aws_route53_zone.texecom.zone_id
+  zone_id         = data.aws_route53_zone.domain.zone_id
 }
 
 resource "aws_acm_certificate_validation" "acm_validate" {
