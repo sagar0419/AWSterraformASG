@@ -1,0 +1,14 @@
+# Git Files
+.git
+*.git
+
+# Terraform File
+.terraform
+*.terraform
+.terraform*
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
+# Unwanted Files
+log.txt
