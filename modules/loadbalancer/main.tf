@@ -5,11 +5,12 @@ resource "aws_lb" "asg_alb" {
   name               = var.asg_alb_name
   internal           = false
   load_balancer_type = "application"
-  security_groups    = ["${var.launch_conf_sg}"]
+  security_groups    = ["${var.aws_security_group_name}"]
   subnets            = var.launch_subnet_id
 
   tags = {
     name = var.asg_alb_name
+    env = var.env
   }
 }
 

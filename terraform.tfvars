@@ -1,46 +1,28 @@
-##Default variable for ECR.
+#-----------------------------------
+#       GLOBAL VARIABLE
+#-----------------------------------
 //AWS_ACCESS_KEY = <"">
 //AWS_SECRET_KEY = <"">
-
-aws_region  = "af-south-1"
+aws_region  = "ap-south-1"
 bucket_name = "sagar"
+env         = "test"
+vpc_id      = "vpc-xxxxxx"
 
 #-----------------------------------
-#       SECURITY GROUP  
+#      LAUNCH TEMPLATE MODULE
 #-----------------------------------
-
-# ingress_rules = {
-#   "rule1" = {
-#     "from_port"   = 80
-#     "to_port"     = 80
-#     "cidr_blocks" = ["0.0.0.0/0"]
-#   }
-#   "rule2" = {
-#     "from_port"   = 443
-#     "to_port"     = 443
-#     "cidr_blocks" = ["0.0.0.0/0"]
-#   },
-#   "rule3" = {
-#     "from_port"   = 8080
-#     "to_port"     = 8080
-#     "cidr_blocks" = ["0.0.0.0/0"]
-#   }
-# }
-
-
+launch_conf_name          = "aws-launch-conf"
+launch_conf_instance_type = "t3.medium"
+launch_conf_key_name      = "jumper"
 
 #-----------------------------------
 #       ASG Variable
 #-----------------------------------
-ami_name                   = "name"
-ami_value                  = "ubuntu-xxxxxxxx"
-vpc_id                     = 
-launch_conf_name           = "cloud2-launch-conf"
-launch_conf_instance_type  = "t3.medium"
-launch_conf_sg             = 
-launch_conf_key_name       = "bastion_host"
-launch_subnet_id           = 
-cloud_asg_name             = "cloud2-asg"
+ami_name  = "name"
+ami_value = "ubuntu"
+
+launch_subnet_id           = ["subnet-xx", "subnet-xx", "subnet-xxx"]
+cloud_asg_name             = "cloud-asg"
 cloud_asg_max_capacity     = "1"
 cloud_asg_min_capacity     = "1"
 cloud_asg_desired_capacity = "1"
@@ -48,9 +30,20 @@ cloud_asg_desired_capacity = "1"
 #------------------------------------
 # LoadBalancer and Route 53 Variable
 #------------------------------------
-asg_alb_name             = "cloud2-asg-lb"
-aws_lb_target_group_name = "cloud2-asg-target-grp"
+asg_alb_name             = "cloud-asg-lb"
+aws_lb_target_group_name = "cloud-asg-target-grp"
 asg_lb_sslpolicy         = "ELBSecurityPolicy-2016-08"
-domain_name_asg          = "sagar.demo.xyz"
-fqdn_name                = "demo.xyz"
-asg_lb_hosted_zone       = "asg_lb_hosted_zone"
+domain_name_asg          = "abc.sagar.xyz"
+fqdn_name                = "sagar.xyz"
+
+#-----------------------------------
+#      SECURITY GROUP VARIABLE
+#-----------------------------------
+aws_security_group_name_asg = "sagar-asg-security"
+bastion_host_sg             = "sg-xxxx"
+
+#-----------------------------------
+#   ASG SCALING POLICY VARIABLE
+#-----------------------------------
+asg_scale_down_name = "testing-down"
+asg_scale_up_name   = "testing-up"
